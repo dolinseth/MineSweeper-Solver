@@ -15,7 +15,8 @@ public class Board {
 			genBoard(numBombs);
 			int x = rnd.nextInt(width);
 			int y = rnd.nextInt(height);
-			if(getTile(x, y).getValue() == 0) {
+			if(getTile(x, y).getValue() == 0 && !getTile(x, y).isBomb()) {
+				System.out.println("First move @" + x + ", " + y);
 				selectTile(x, y);
 				firstMoveSuccessful = true;
 			}

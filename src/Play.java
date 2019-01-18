@@ -1,6 +1,6 @@
 public class Play {
 	public static void main(String[] args) {
-		Solver solver = new Solver(40, 20, 100);//width, height, numbombs
+		Solver solver = new Solver(15, 25, 63);//width, height, numbombs
 		solver.solveBoard(false, true);//verbose, slowly
 		System.out.println("Solver finished");
 		solver.board.printBoard();

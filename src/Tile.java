@@ -30,21 +30,20 @@ public class Tile {
 	}
 	
 	public void calcValue(){
-//		System.out.println("Calculating value @" + x + ", " + y);
-		ArrayList<Tile> tiles = board.getSurroundingTiles(x, y);
-//		System.out.println("tile array size: " + tiles.size());
-		int calculatedValue = 0;
-		for(int i = 0; i < tiles.size(); i++){
-//			System.out.println(i);
-//			Tile t = tiles.get(i);
-//			System.out.println("Checking tile @" + x + ", " + y + " isBomb= " + t.isBomb());
-			if(tiles.get(i).isBomb()){
-				calculatedValue++;
+		if(!isBomb){
+			ArrayList<Tile> tiles = board.getSurroundingTiles(x, y);
+			int calculatedValue = 0;
+			for(int i = 0; i < tiles.size(); i++){
+				if(tiles.get(i).isBomb()){
+					calculatedValue++;
+				}
 			}
+			
+			value = calculatedValue;
 		}
-		
-		value = calculatedValue;
-//		System.out.println("Calculated value = " + calculatedValue);
+		else{
+			value = -1;
+		}
 	}
 	
 	public ArrayList<Coordinate> getSurroundingCoords(){
